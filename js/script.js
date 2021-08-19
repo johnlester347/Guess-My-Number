@@ -1,12 +1,13 @@
 'use strict';
 
-const btn = document.querySelector('.check');
+const check = document.querySelector('.check');
+const again = document.querySelector('.again');
 
 let secret = Math.trunc(Math.random() * 20)+1;
 let score = 20;
 
 
-btn.addEventListener('click', function(e) {
+check.addEventListener('click', function(e) {
 
     const guess = Number(document.querySelector('.guess').value);
 
@@ -37,4 +38,16 @@ btn.addEventListener('click', function(e) {
         }
     }
 
+});
+
+again.addEventListener('click', function(e) {
+
+    score = 20;
+    document.querySelector('.score').textContent = score;
+    secret = Math.trunc(Math.random() * 20)+1;
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('.guess').value = '';
 });
