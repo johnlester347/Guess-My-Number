@@ -3,8 +3,8 @@
 const btn = document.querySelector('.check');
 
 let secret = Math.trunc(Math.random() * 20)+1;
-const secretNumber = document.querySelector('.number').textContent = secret;
 let score = 20;
+
 
 btn.addEventListener('click', function(e) {
 
@@ -14,6 +14,9 @@ btn.addEventListener('click', function(e) {
         document.querySelector('.message').textContent = 'No number';
     } else if(guess === secret) {
         document.querySelector('.message').textContent = 'Correct Number!!!';
+        document.querySelector('body').style.backgroundColor = '#60b347';
+        const secretNumber = document.querySelector('.number').textContent = secret;
+        document.querySelector('.number').style.width = '30rem';
     } else if(guess > secret) {
         if(score > 1) {
             document.querySelector('.message').textContent = 'To high!!';
